@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Concrete
 {
-    public class Result : IDataResult
+    public class Result : IResult
     {
         public bool Success { get; }
 
