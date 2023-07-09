@@ -5,6 +5,7 @@ using Core.Utilities.Abstract;
 using Core.Utilities.Concrete;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,10 @@ namespace Business.Concrete
         }
         public IResult AddCar(Car car)
         {
-            // iş kodları
+            if (car.CarName.Length < 2)
+                return new ErrorResult(Messages.CarNameInvalid);
+            else if(car.DailyPrice <= 0)
+                return new ErrorResult(Messages.CarDailyPriceInvalid);
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
@@ -62,6 +66,12 @@ namespace Business.Concrete
         {
             // iş kodları
             return new SuccessDataResult<List<Car>>(Messages.CarsListed, _carDal.GetAll(c => c.ModelYear == modelYear));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarsDetail()
+        {
+            // iş kodları
+            return new SuccessDataResult<List<CarDetailDto>>(Messages.CarsListed, _carDal.GetCarsDetail());
         }
 
         public IResult UpdateCar(Car car)
