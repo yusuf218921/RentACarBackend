@@ -4,13 +4,16 @@ using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entity.Concrete;
 
-ICarService carService = new CarManager(new EfCarDal());
+IRentalService rentalService = new RentalManager(new EfRentalDal());
+IUserService userService = new UserManager(new EfUserDal());
+ICustomerService customerService = new CustomerManager(new EfCustomerDal());
 
-var result = carService.GetCarsDetail().Data;
-foreach (var item in result)
-{
-    Console.WriteLine(item.CarName + " / " + item.BrandName + " / " + item.ColorName);
-}
+//userService.Add(new User { FirstName = "yusuf", LastName = "sönmez", Email = "yusuf@gmail.com", Password = "218921aa" });
+//customerService.Add(new Customer { UserID = 1, CompanyName = "ovam" });
+rentalService.Add(new Rental { CarID = 1, CustomerID = 1, RentDate = DateTime.Now.ToString(), ReturnDate = null }, new Car() { IsRentable=true });
+// To Do -> Rental için bir tane dto yaz
+
+
 
 
 

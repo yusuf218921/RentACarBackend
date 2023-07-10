@@ -16,5 +16,6 @@ namespace Entity.Concrete
         public string ModelYear { get; set; }
         public int DailyPrice { get; set; }
         public string Description { get; set; }
+        public bool IsRentable { get; set; }
     }
 }
