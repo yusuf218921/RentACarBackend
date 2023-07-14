@@ -37,6 +37,62 @@ namespace WebAPI.Controllers
                 return Ok(result);
             return BadRequest(result);
         }
+        [HttpGet("getbycolors")]
+        public IActionResult GetByColors(int id)
+        {
+            var result = _carService.GetCarsByColor(id);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _carService.GetCarById(id);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+        [HttpGet("getbydailyprice")]
+        public IActionResult GetByDailyPrice(int min,int max)
+        {
+            var result = _carService.GetCarsByDailyPrice(min,max);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+        [HttpGet("getbymodelyears")]
+        public IActionResult GetByModelYears(string year)
+        {
+            var result = _carService.GetCarsByModelYear(year);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+        [HttpGet("getcardto")]
+        public IActionResult GetCarDto()
+        {
+            var result = _carService.GetCarsDetail();
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+        [HttpPost("deletecar")]
+        public IActionResult Delete(Car car)
+        {
+            var result = _carService.DeleteCar(car);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+        [HttpPost("updatecar")]
+        public IActionResult Update(Car car)
+        {
+            var result = _carService.UpdateCar(car);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
         [HttpPost("add")]
         public IActionResult Add(Car car)
         {

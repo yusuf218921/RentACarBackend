@@ -46,7 +46,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll());
         }
 
-        public IDataResult<List<Rental>> GetNotReturnCars(Rental rental)
+        public IDataResult<List<Rental>> GetNotReturnCars()
         {
             // iş kodları
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.ReturnDate == null));
