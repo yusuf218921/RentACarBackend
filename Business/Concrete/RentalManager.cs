@@ -1,14 +1,9 @@
 ﻿using Business.Abstract;
 using Business.Constants;
-using Core.Utilities.Abstract;
-using Core.Utilities.Concrete;
+using Business.Rules;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -23,7 +18,7 @@ namespace Business.Concrete
 
         public IResult Add(Rental rental,Car car)
         {
-            if (car.IsRentable)
+            if (RentalRules.IsRentable(car))
             {
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalCar);
@@ -34,27 +29,33 @@ namespace Business.Concrete
 
         public IResult Delete(Rental rental)
         {
-            throw new NotImplementedException();
+            // iş kodları
+            _rentalDal.Delete(rental);
+            return new SuccessResult(Messages.RentalDeleted);
         }
 
         public IDataResult<Rental> Get(int id)
         {
-            throw new NotImplementedException();
+            // iş kodları
+            return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.RentalID == id));
         }
 
         public IDataResult<List<Rental>> GetAll()
         {
-            throw new NotImplementedException();
+            // iş kodları
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll());
         }
 
         public IDataResult<List<Rental>> GetNotReturnCars(Rental rental)
         {
-            throw new NotImplementedException();
+            // iş kodları
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.ReturnDate == null));
         }
 
         public IDataResult<List<Rental>> GetOnlyReturnCars()
         {
-            throw new NotImplementedException();
+            // iş kodları
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.ReturnDate != null));
         }
 
         public IResult Update(Rental rental)

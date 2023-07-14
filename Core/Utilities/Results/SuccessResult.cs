@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Utilities.Concrete
+namespace Core.Utilities.Results
 {
     public class SuccessResult : Result
     {
@@ -12,9 +12,10 @@ namespace Core.Utilities.Concrete
         {
 
         }
+
         public SuccessResult() : base(true)
         {
-            
+
         }
     }
 }

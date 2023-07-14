@@ -1,4 +1,4 @@
-﻿using Core.Utilities.Abstract;
+﻿using Core.Utilities.Results;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -17,5 +17,6 @@ namespace Business.Abstract
         IDataResult<List<Rental>> GetAll();
         IDataResult<List<Rental>> GetNotReturnCars(Rental rental);
         IDataResult<List<Rental>> GetOnlyReturnCars();
+
     }
 }

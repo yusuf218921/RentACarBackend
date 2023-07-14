@@ -1,7 +1,6 @@
 ﻿using Entity.Concrete;
-using Core.Utilities.Abstract;
-using Core.Utilities.Concrete;
 using Entity.DTOs;
+using Core.Utilities.Results;
 
 namespace Business.Abstract
 {
@@ -16,5 +15,6 @@ namespace Business.Abstract
         IDataResult<List<Car>> GetCarsByColor(int colorId);
         IDataResult<List<Car>> GetCarsByModelYear(string modelYear);
         IDataResult<List<CarDetailDto>> GetCarsDetail();
+
     }
 }

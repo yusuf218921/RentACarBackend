@@ -22,5 +22,7 @@ namespace Business.Constants
         public static string RentalCar = "Araç Kiralandı";
         public static string ReturnCar = "Araç teslim edildi";
         public static string NotReturnCar = "Araç daha teslim edilmedi";
+
+        public static string RentalDeleted = "Kiralama silindi";
     }
 }

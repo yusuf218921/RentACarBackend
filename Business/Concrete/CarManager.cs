@@ -1,16 +1,11 @@
 ﻿using Business.Abstract;
 using Business.Constants;
-using Core.DataAccess;
-using Core.Utilities.Abstract;
-using Core.Utilities.Concrete;
+
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
 using Entity.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Business.Concrete
 {
@@ -41,7 +36,8 @@ namespace Business.Concrete
         public IDataResult<Car> GetCarById(int id)
         {
             // iş kodları
-            return new SuccessDataResult<Car>(Messages.CarsListed, _carDal.Get(c=> c.CarID == id));
+            var result = new SuccessDataResult<Car>(Messages.CarsListed, _carDal.Get(c => c.CarID == id));
+            return result;
         }
 
         public IDataResult<List<Car>> GetCarsByBrands(int brandId)
