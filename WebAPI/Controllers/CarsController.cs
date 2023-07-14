@@ -20,10 +20,30 @@ namespace WebAPI.Controllers
             _carService = carService;
         }
 
-        [HttpGet]
-        public IDataResult<List<Car>> Get()
+        [HttpGet("getbybrands")]
+        public IActionResult GetByBrands(int id)
         {
-            return _carService.GetCarsByBrands(1);
+            var result = _carService.GetCarsByBrands(id);
+            if(result.Success)
+                return Ok(result);
+            return BadRequest(result);
+
+        }
+        [HttpGet("getall")]
+        public IActionResult GetAll()
+        {
+            var result = _carService.GetAllCars();
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+        [HttpPost("add")]
+        public IActionResult Add(Car car)
+        {
+            var result = _carService.AddCar(car);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
         }
     }
 }

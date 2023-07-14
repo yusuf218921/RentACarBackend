@@ -33,6 +33,12 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
 
+        public IDataResult<List<Car>> GetAllCars()
+        {
+            // iş kodları
+            return new SuccessDataResult<List<Car>>(Messages.CarsListed, _carDal.GetAll());
+        }
+
         public IDataResult<Car> GetCarById(int id)
         {
             // iş kodları
