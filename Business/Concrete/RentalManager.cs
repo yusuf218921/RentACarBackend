@@ -1,30 +1,37 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.Rules;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using FluentValidation;
+using System.ComponentModel.DataAnnotations;
 
 namespace Business.Concrete
 {
     public class RentalManager : IRentalService
     {
         IRentalDal _rentalDal;
+        ICarService _carService;
 
-        public RentalManager(IRentalDal rentalDal)
+        public RentalManager(IRentalDal rentalDal, ICarService carService)
         {
             _rentalDal = rentalDal;
+            _carService = carService;
         }
 
-        public IResult Add(Rental rental,Car car)
+        [ValidationAspect(typeof(RentalValidator))]
+        public IResult Add(Rental rental)
         {
-            if (RentalRules.IsRentable(car))
-            {
-                _rentalDal.Add(rental);
-                return new SuccessResult(Messages.RentalCar);
-            }
-            else
-                return new ErrorResult(Messages.NotReturnCar);
+            var result = BusinessRules.Run(CheckIsCarRentable(rental.CarID));
+            if (result != null)
+                return result;
+
+            _rentalDal.Add(rental);
+            return new SuccessResult(Messages.RentalCar);
         }
 
         public IResult Delete(Rental rental)
@@ -63,6 +70,12 @@ namespace Business.Concrete
             // iş kodları
             _rentalDal.Update(rental);
             return new SuccessResult();
+        }
+        private IResult CheckIsCarRentable(int carId)
+        {
+            if (_carService.GetCarById(carId).Data.IsRentable)
+                return new SuccessResult();
+            return new ErrorResult(Messages.CarIsNotRentable);
         }
     }
 }

@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class RentalValidation : AbstractValidator<Rental>
+    public class RentalValidator : AbstractValidator<Rental>
     {
-        public RentalValidation()
+        public RentalValidator()
         {
-            //TODO: Rental için gerekli kuralları yaz
-                
+            RuleFor(r=> r.CarID).NotEmpty();
+            RuleFor(r => r.CustomerID).NotEmpty();
+            RuleFor(r => r.RentDate).NotEmpty();
         }
     }
 }
