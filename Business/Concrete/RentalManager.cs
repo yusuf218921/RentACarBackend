@@ -1,14 +1,11 @@
 ﻿using Business.Abstract;
 using Business.Constants;
-using Business.Rules;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
-using FluentValidation;
-using System.ComponentModel.DataAnnotations;
 
 namespace Business.Concrete
 {
@@ -65,9 +62,12 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.ReturnDate != null));
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Update(Rental rental)
         {
-            // iş kodları
+            var result = BusinessRules.Run(CheckIsCarRentable(rental.CarID));
+            if (result != null)
+                return result;
             _rentalDal.Update(rental);
             return new SuccessResult();
         }

@@ -13,7 +13,10 @@ namespace Business.Abstract
         IResult Add(User user);
         IResult Delete(User user);
         IResult Update(User user);
-        IDataResult<User> get(int id);
-        IDataResult<List<User>> getAll();
+        IDataResult<User> Get(int id);
+        IDataResult<List<User>> GetAll();
+        IDataResult<User> GetByEmail(string email);
+        IDataResult<List<User>> GetByFirstName(string firstName);
+        IDataResult<List<User>> GetByLastName(string lastName);
     }
 }
