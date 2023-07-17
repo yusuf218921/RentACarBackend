@@ -70,7 +70,8 @@ namespace Business.Concrete
                 return result;
             _rentalDal.Update(rental);
             return new SuccessResult();
-        }
+        } 
+
         private IResult CheckIsCarRentable(int carId)
         {
             if (_carService.GetCarById(carId).Data.IsRentable)

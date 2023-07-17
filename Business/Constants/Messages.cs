@@ -27,7 +27,7 @@ namespace Business.Constants
         public static string CarCountOfBrandError = "Belirtilen araç markasına sadece 10 adet araç eklenebilir";
         public static string CarNameError = "Aynı isimle iki araba bulunamaz";
         public static string BrandCountError = "Marka sayısı 15'i geçemez";
-        internal static string EmailIsExist;
-        internal static string UserUpdated;
+        public static string EmailIsExist = "Bu email daha önce alınmış";
+        public static string UserUpdated = "Kullanıcı güncellendi";
     }
 }

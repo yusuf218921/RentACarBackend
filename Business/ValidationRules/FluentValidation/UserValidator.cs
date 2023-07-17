@@ -8,9 +8,9 @@ namespace Business.ValidationRules.FluentValidation
         public UserValidator() 
         {
             RuleFor(u => u.Email).Must(IsValidEmail);
-            RuleFor(u => u.FirstName).Length(2);
-            RuleFor(U => U.LastName).Length(2);
-            RuleFor(u => u.Password).Length(8);
+            RuleFor(u => u.FirstName).MinimumLength(2);
+            RuleFor(U => U.LastName).MinimumLength(2);
+            RuleFor(u => u.Password).MinimumLength(8);
             RuleFor(u => u.Password).Must(MustContainANumber);
         }
 
