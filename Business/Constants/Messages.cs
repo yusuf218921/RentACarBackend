@@ -29,5 +29,6 @@ namespace Business.Constants
         public static string BrandCountError = "Marka sayısı 15'i geçemez";
         public static string EmailIsExist = "Bu email daha önce alınmış";
         public static string UserUpdated = "Kullanıcı güncellendi";
+        public static string AuthorizationDenied = "Yetkiniz yok";
     }
 }

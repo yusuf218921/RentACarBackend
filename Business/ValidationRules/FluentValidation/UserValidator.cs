@@ -1,4 +1,4 @@
-﻿using Entity.Concrete;
+﻿using Core.Entity.Concrete;
 using FluentValidation;
 
 namespace Business.ValidationRules.FluentValidation
@@ -10,8 +10,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(u => u.Email).Must(IsValidEmail);
             RuleFor(u => u.FirstName).MinimumLength(2);
             RuleFor(U => U.LastName).MinimumLength(2);
-            RuleFor(u => u.Password).MinimumLength(8);
-            RuleFor(u => u.Password).Must(MustContainANumber);
         }
 
         private bool MustContainANumber(string arg)

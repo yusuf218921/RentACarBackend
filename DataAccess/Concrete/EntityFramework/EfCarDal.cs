@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfCarDal : EfEntityRepositoryBase<Car, NorthwindContext>, ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, RentACarContext>, ICarDal
     {
         public List<CarDetailDto> GetCarsDetail()
         {
-            using (NorthwindContext context = new NorthwindContext())
+            using (RentACarContext context = new RentACarContext())
             {
                 var result = from car in context.Cars
                              join color in context.Colors on car.ColorID equals color.ColorID
