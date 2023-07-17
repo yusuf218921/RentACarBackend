@@ -4,7 +4,7 @@ using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entity.Concrete;
+using Entities.Concrete;
 using System.ComponentModel.DataAnnotations;
 
 namespace Business.Concrete

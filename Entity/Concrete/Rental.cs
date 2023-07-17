@@ -1,11 +1,11 @@
-﻿using Core.Entity;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Concrete
+namespace Entities.Concrete
 {
     public class Rental : IEntity
     {

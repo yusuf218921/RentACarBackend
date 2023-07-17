@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using Core.Utilities.Security.JWT;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,5 +32,11 @@ namespace Business.Constants
         public static string EmailIsExist = "Bu email daha önce alınmış";
         public static string UserUpdated = "Kullanıcı güncellendi";
         public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string UserRegistered = "Kayıt olundu";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Hatalı Şifre";
+        public static string SuccessfulLogin = "Başarıyla giriş yapıldı";
+        public static string AccessTokenCreated = "Token oluşturuldu";
+        public static string UserAlreadyExists = "Kullanıcı mevcut";
     }
 }

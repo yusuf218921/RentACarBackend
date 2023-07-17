@@ -2,8 +2,8 @@
 using Business.Abstract;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entity.Concrete;
-using Entity.DTOs;
+using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

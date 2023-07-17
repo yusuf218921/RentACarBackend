@@ -5,7 +5,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entity.Concrete;
+using Entities.Concrete;
 
 namespace Business.Concrete
 {

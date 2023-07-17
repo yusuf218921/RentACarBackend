@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Entity
+namespace Core.Entities
 {
-    public interface IDto
+    // veri tabanındaki tabloları tutacak sınıfların ortak referansı
+    public interface IEntity
     {
     }
 }

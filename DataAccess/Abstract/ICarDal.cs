@@ -1,6 +1,6 @@
 ﻿using Core.DataAccess;
-using Entity.Concrete;
-using Entity.DTOs;
+using Entities.Concrete;
+using Entities.DTOs;
 
 
 namespace DataAccess.Abstract

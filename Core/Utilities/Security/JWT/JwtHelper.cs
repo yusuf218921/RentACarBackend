@@ -4,7 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using Core.Entity.Concrete;
+using Core.Entities.Concrete;
 using Core.Extensions;
 using Core.Utilities.Security.Encyption;
 using Core.Utilities.Security.JWT;

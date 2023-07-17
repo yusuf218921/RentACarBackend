@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Core.DataAccess;
-using Core.Entity.Concrete;
-using Core.Entity.Concrete;
-using Entity.Concrete;
+﻿using Core.DataAccess;
+using Core.Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
