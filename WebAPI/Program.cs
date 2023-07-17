@@ -1,6 +1,9 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Business.DependencyRevolvers.Autofac;
+using Core.DependencyResolvers;
+using Core.Utilities.Extensions;
+using Core.Utilities.IoC;
 using Core.Utilities.Security.Encyption;
 using Core.Utilities.Security.Jwt;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -19,7 +22,7 @@ namespace WebAPI
             builder.Services.AddControllers();
             var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
-
+            
 
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
@@ -48,6 +51,9 @@ namespace WebAPI
                     };
 
                 });
+            builder.Services.AddDependencyResolvers(new ICoreModule[] {
+                new CoreModule() 
+            }) ;
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
