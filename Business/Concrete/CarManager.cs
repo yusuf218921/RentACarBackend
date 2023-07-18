@@ -16,6 +16,7 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
+
         ICarDal _carDal;
         IBrandService _brandService;
         public CarManager(ICarDal carDal, IBrandService brandService)
@@ -24,6 +25,7 @@ namespace Business.Concrete
             _brandService = brandService;
 
         }
+
 
         [SecuredOperation("admin")]
         [ValidationAspect(typeof(CarValidator))]

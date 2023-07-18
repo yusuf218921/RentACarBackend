@@ -18,9 +18,9 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        public IDataResult<List<OperationClaim>> GetClaims(int id)
         {
-            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(id));
         }
 
         public IResult Add(User user)

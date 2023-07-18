@@ -16,5 +16,14 @@ namespace WebAPI.Controllers
         {
             _userService = userService;
         }
+        [HttpGet("getclaims")]
+        public IActionResult GetClaims(int id) 
+        {
+            var result = _userService.GetClaims(id);
+            if (result.Success)
+                return Ok(result);
+            return BadRequest(result);
+        }
+
     }
 }

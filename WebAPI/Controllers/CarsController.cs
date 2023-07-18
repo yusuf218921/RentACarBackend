@@ -96,6 +96,9 @@ namespace WebAPI.Controllers
         [HttpPost("add")]
         public IActionResult Add(Car car)
         {
+            var header = Request.Headers;
+            Console.WriteLine(header);
+
             var result = _carService.AddCar(car);
             if (result.Success)
                 return Ok(result);

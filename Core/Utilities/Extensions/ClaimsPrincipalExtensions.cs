@@ -1,5 +1,4 @@
 ﻿using System.Security.Claims;
-
 namespace Core.Extensions
 {
     public static class ClaimsPrincipalExtensions
